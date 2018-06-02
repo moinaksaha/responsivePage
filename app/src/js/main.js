@@ -488,7 +488,7 @@ MTRK.setUpMainSlider = (function(app, o) {
     };
 
     app.mainSlider.eventListener = function() {
-
+    
         this.slider.on("lazyLoad", this.setBGImage.bind(this));
 
     };
