@@ -1,5 +1,4 @@
-// import './assets/style.css';
-// import './assets/appointments.json';
+import './src/css/main.scss';
 
 import Vue from 'vue';
 import App from './containers/App/App.vue'

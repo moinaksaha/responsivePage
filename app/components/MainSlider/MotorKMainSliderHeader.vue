@@ -71,7 +71,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 /* === MAIN SLIDER === */
 /* .slider-wrapper {
@@ -90,6 +90,9 @@ export default {
 	background-color: rgba(255, 255, 255, .4);
 	-webkit-transform: translateY(-50%);
 	transform: translateY(-50%);
+    @media screen and (max-width: 991px) {
+        max-width: 70%;
+    }
     @media screen and (max-width: 767px) {
         max-width: 90%;
     }
@@ -99,6 +102,19 @@ export default {
 	opacity: 0;
 	-webkit-transform: matrix(0.5, 0, 0, 0.5, 0, -22);
 	transform: matrix(0.5, 0, 0, 0.5, 0, -22);
+}
+
+.slider__head__el{
+    .btn{
+        @media screen and (max-width: 767px) {
+            display: block;
+            &:nth-child(2) {
+                margin-left: 0;
+                margin-top: 1em;
+            }
+        }
+        
+    }
 }
 
 /* .slider__el {

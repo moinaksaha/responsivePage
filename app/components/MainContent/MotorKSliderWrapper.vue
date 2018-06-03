@@ -58,12 +58,16 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 /* === MAIN SLIDER === */
 .slider-wrapper {
 	height: calc(100vh - 78px);
 	position: relative;
+  min-height: 500px;
+  @media screen and (max-width: 767px) {
+        height: calc(100vh - 200px);
+  }
 }
 
 /* .slider__head {
@@ -99,7 +103,6 @@ export default {
 .slider__media {
 	visibility: hidden;
 }
-
 
 </style>
 
