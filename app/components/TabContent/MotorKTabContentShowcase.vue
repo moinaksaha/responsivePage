@@ -111,3 +111,36 @@ export default {
 }
 </script>
 
+<style lang="scss" scoped>
+
+  #showcase{
+    .grid__item{
+      display: flex;
+    }
+    .btn-wrapper{
+      a{
+        @media screen and (max-width: 600px){
+          display: block;
+          &:nth-child(2){
+            margin-left: 0;
+            margin-top: 1em;
+          }
+        }
+      }
+    }
+    & > .layout{
+      flex-direction: row;
+      @media screen and (max-width: 991px){
+        flex-direction: column;
+      }
+      & > .layout__item{
+        @media screen and (max-width: 991px){
+          padding: 0;
+        }
+      }
+    }
+
+  }
+</style>
+
+

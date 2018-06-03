@@ -1,4 +1,5 @@
 import './src/css/main.scss';
+import './data/cars.json';
 
 import Vue from 'vue';
 import App from './containers/App/App.vue'

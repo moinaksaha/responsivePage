@@ -115,15 +115,24 @@
 <script>
 
 import GenericButton from '../Buttons/GenericButton.vue';
+import carsData from '../../data/cars.json';
+// console.log(carsData)
 
 export default {
     name: 'MotorKTabContentGallery',
+    created: function() {
+      // import('./builds/cars.json')
+      //   .then( info =>  {
+      //     this.data = info;
+      // }); //getJSON
+    }, //created
     data(){
       return{
         participateButton : {
           displayText: 'Participate', 
           hrefLink : '#partecipate', 
-          type: 'yellowButton'
+          type: 'yellowButton',
+          data: carsData
         }
       }
     },
@@ -132,3 +141,15 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+  #gallery{
+    header.layout{
+      @media screen and (max-width: 767px){
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  }
+</style>
+
