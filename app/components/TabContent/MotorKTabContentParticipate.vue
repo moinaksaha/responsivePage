@@ -55,3 +55,29 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+  .layout{
+    @media screen and (max-width: 1024px){
+      display: flex;
+      flex-direction: column-reverse;
+      flex-wrap: wrap;
+    }
+  }
+  .btn-wrapper a{
+    @media screen and (max-width: 767px){
+      display: block;
+    }
+  }
+  figure::after {
+      content: "";
+      clear: both;
+      display: table;
+  }
+  figure::before {
+      content: "";
+      clear: both;
+      display: table;
+  }
+</style>
+
