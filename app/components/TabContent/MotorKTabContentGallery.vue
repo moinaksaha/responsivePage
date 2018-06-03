@@ -10,7 +10,8 @@
           </div>
           <div class="layout__item">
             <div class="btn-wrapper btn-wrapper--center">
-              <a href="#partecipate" class="btn btn--main">Participate</a>
+              <generic-button 
+                :buttonData="participateButton"/>
             </div>
           </div>
         </header>
@@ -112,7 +113,22 @@
 </template>
 
 <script>
+
+import GenericButton from '../Buttons/GenericButton.vue';
+
 export default {
-    name: 'MotorKTabContentGallery'
+    name: 'MotorKTabContentGallery',
+    data(){
+      return{
+        participateButton : {
+          displayText: 'Participate', 
+          hrefLink : '#partecipate', 
+          type: 'yellowButton'
+        }
+      }
+    },
+    components: {
+      'generic-button': GenericButton
+    }
 }
 </script>

@@ -53,14 +53,21 @@
         <section id="showcase-copy" class="showcase-copy fixedsticky">
 
           <motork-paragraph-component 
-            :displayText = "paraTextTop" />
+            :paragraphData = "paraTextTop" />
 
           <motork-paragraph-component 
-            :displayText = "paraTextBottom" />
+            :paragraphData = "paraTextBottom" />
           
           <div class="btn-wrapper">
-            <a href="#" class="btn btn--sec">I'm a CTA</a>
-            <a href="#" class="btn btn--sec">Yeah, me too</a>
+
+            <generic-button
+              :buttonData="imaCTAButton" 
+            />
+
+            <generic-button
+              :buttonData="meTooButton" 
+            />
+
           </div>
         </section>
       </div>
@@ -71,19 +78,35 @@
 <script>
 
 import MotorKParagraphComponent from '../Utility/MotorKParagraphComponent.vue';
+import GenericButton from '../Buttons/GenericButton.vue';
 
 export default {
     name: 'MotorKTabContentShowcase',
     data() {
       return {
-        paraTextTop: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda doloremque, in
+        paraTextTop: {
+          displayText: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda doloremque, in
             nemo nisi quaerat quibusdam temporibus. Ducimus eaque eligendi, enim mollitia neque
             porro reprehenderit sequi ullam unde vel voluptates voluptatum?`,
-        paraTextBottom: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda doloremque.`
+        },
+        paraTextBottom: {
+          displayText: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda doloremque.`
+        },
+        imaCTAButton : {
+          displayText: 'I\'m a CTA', 
+          hrefLink : '#gallery', 
+          type: 'transparentButton'
+        },
+        meTooButton : {
+          displayText: 'Yeah, me too', 
+          hrefLink : '#gallery', 
+          type: 'transparentButton'
+        }
       }
     },
     components: {
-      'motork-paragraph-component': MotorKParagraphComponent
+      'motork-paragraph-component': MotorKParagraphComponent,
+      'generic-button': GenericButton
     }
 }
 </script>

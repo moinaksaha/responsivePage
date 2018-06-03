@@ -681,7 +681,7 @@ svg {
 }
 
 /* === MAIN SLIDER === */
-.slider-wrapper {
+/* .slider-wrapper {
 	height: calc(100vh - 78px);
 	position: relative;
 }
@@ -718,7 +718,7 @@ svg {
 
 .slider__media {
 	visibility: hidden;
-}
+} */
 
 /* === TABS === */
 .tabs {
