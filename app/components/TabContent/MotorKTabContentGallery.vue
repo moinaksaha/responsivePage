@@ -17,7 +17,12 @@
         </header>
       </div>
       <section class="gallery">
-        <script type="text/template" id="tpl--gallery-box">
+
+        <gallery-wrapper 
+          :data="galleryData"/>
+
+
+        <!-- <script type="text/template" id="tpl--gallery-box">
           <% var i = 0, len = this.data.length; %>
           <% for ( ; i < len; i+=1 ) { %>
           <div class="gallery__el layout__item js-open-detail">
@@ -97,17 +102,8 @@
           <% } %>
         </script>
         <div id="gallery__boxes" class="gallery__boxes layout layout--center" data-content="{}">
-        </div>
-        <nav id="gellery__paging" class="gallery__paging">
-          <button class="gallery__paging__cmd gallery__paging__cmd--symbol">&laquo;</button>
-          <button class="gallery__paging__cmd gallery__paging__cmd--symbol">&lsaquo;</button>
-          <button class="gallery__paging__cmd is-active">1</button>
-          <button class="gallery__paging__cmd">2</button>
-          <button class="gallery__paging__cmd">3</button>
-          <button class="gallery__paging__cmd">4</button>
-          <button class="gallery__paging__cmd gallery__paging__cmd--symbol">&rsaquo;</button>
-          <button class="gallery__paging__cmd gallery__paging__cmd--symbol">&raquo;</button>
-        </nav>
+        </div> -->
+      
       </section>
     </section>
 </template>
@@ -115,8 +111,9 @@
 <script>
 
 import GenericButton from '../Buttons/GenericButton.vue';
-import carsData from '../../data/cars.json';
-// console.log(carsData)
+import GalleryWrapper from '../Gallery/GalleryWrapper.vue'
+let carsData = require('../../data/cars.json');
+console.log(carsData)
 
 export default {
     name: 'MotorKTabContentGallery',
@@ -132,18 +129,23 @@ export default {
           displayText: 'Participate', 
           hrefLink : '#partecipate', 
           type: 'yellowButton',
-          data: carsData
-        }
+        },
+        galleryData: carsData
       }
     },
     components: {
-      'generic-button': GenericButton
+      'generic-button': GenericButton,
+      'gallery-wrapper': GalleryWrapper
     }
 }
 </script>
 
 <style lang="scss" scoped>
   #gallery{
+    > section{
+      margin-top: 2em;
+    }
+    
     header.layout{
       @media screen and (max-width: 767px){
         flex-direction: column;
