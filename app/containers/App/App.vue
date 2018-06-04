@@ -15,12 +15,11 @@
 </template>
 
 <script>
-
+  
   import MotorKMainHeader from '../../components/MotorKMainHeader.vue';
   import MotorKShareLayer from '../../components/MotorKShareLayer.vue';
   import MotorKMainFooter from '../../components/MotorKMainFooter.vue';
   import MotorKMainContent from '../../components/MotorKMainContent.vue';
-
 
   export default {
     name: 'MainApp',

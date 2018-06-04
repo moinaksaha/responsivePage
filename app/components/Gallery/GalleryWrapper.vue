@@ -36,6 +36,22 @@ import GalleryItem from './GalleryItem.vue';
 export default {
     name: 'GalleryWrapper',
     props: ['data'],
+    data(){
+        return {
+            scrollValue: 0,
+            animatedScrolledValue: 0
+        }
+    },
+    // computed: {
+    //     animatedNumber: function() {
+    //         return this.animatedScrolledValue.toFixed(0);
+    //     }
+    // },
+    // watch: {
+    //     scrollValue: function(newValue) {
+    //         TweenLite.to(this.$data, 0.5, { animatedScrolledValue: newValue });
+    //     }
+    // },
     components: {
         'gallery-item': GalleryItem
     }
@@ -48,6 +64,11 @@ export default {
         white-space: nowrap;
         display: flex;
         padding: 1em 0;
+        -ms-overflow-style: none;  // IE 10+
+        transition: 0.5s ease;
+        ::-webkit-scrollbar {
+            display: none;  /* optional: just make scrollbar invisible */
+        }
     }
 </style>
 

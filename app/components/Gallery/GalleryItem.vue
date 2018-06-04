@@ -44,7 +44,7 @@ export default {
         border: 1px solid #e6e6e6;
         // border-radius: 4px;
         display: inline-block;
-        padding: 1em;
+        padding: 1em 1em 2em 1em;
         text-align: center;
         margin-right: 1.5em;
         box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.14);
@@ -54,13 +54,15 @@ export default {
         }
         .car__make{
             text-transform: uppercase;
-            margin: 1em 0 2em 0;
+            margin-top: 1em;
         }
         .car__model{
             font-weight: 800;
+            font-size: 1.3em;
+            margin: 0.5em 0;
         }
         .car__id{
-            font-size: 0.6em;
+            font-size: 0.8em;
         }
     }
 </style>
