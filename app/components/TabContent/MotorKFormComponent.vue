@@ -1,6 +1,7 @@
 <template>
     
-    <form id="form-partecipate" name="form-partecipate" action="/" method="POST">
+    <form id="form-partecipate" name="form-partecipate" action="/" method="POST"
+        @submit.prevent="validateFormData" novalidate="true">
 
         <h2 class="heading heading--sec heading--branded">Participate now!</h2>
 
@@ -53,7 +54,10 @@
                 v-model="formData.selectState"
             >
                 <option value="-">Select your state</option>
-                <option value="0">Select</option>
+                <option value="0">State 1</option>
+                <option value="1">State 2</option>
+                <option value="2">State 3</option>
+                <option value="3">State 4</option>
             </select>
 
             <div class="layout__item">
@@ -61,7 +65,8 @@
                 <div class="layout">
 
                     <select 
-                        required aria-label="Day" 
+                        required 
+                        aria-label="Day" 
                         name="birthday-day" 
                         id="day" title="Day" 
                         class="form__el layout__item"
@@ -349,6 +354,17 @@
 
                     </div>
 
+                    <div>
+
+                        <p v-if="errors.length">
+                            <b>Please fix the following error(s):</b>
+                            <ul>
+                                <li v-for="(error, i) in errors" v-bind:key="i">{{ error }}</li>
+                            </ul>
+                        </p>
+
+                    </div>
+
                 </div>
 
             </div>
@@ -364,12 +380,78 @@ export default {
     name: 'MotorKFormComponent',
     data(){
         return {
+            errors:[],
             formData: {
                 selectDay: '0',
                 selectMonth: '0',
                 selectYear: '0',
                 selectCategory: '-',
                 selectState: '-'
+            }
+        }
+    },
+    methods: {
+        validateFormData: function(){
+            this.errors = [];
+
+            if(!(this.formData.firstName && this.formData.firstName.trim())){
+                this.errors.push("First Name is required.");
+            }
+
+            if(!(this.formData.lastName && this.formData.lastName.trim())){
+                this.errors.push("Last Name is required.");
+            }
+
+            if(!this.formData.emailID){
+                this.errors.push("Email ID is required.")
+            }else{
+                this.validEmail(this.formData.emailID);
+            }
+
+            if(!(this.formData.phoneNumber && this.formData.phoneNumber.trim())){
+                this.errors.push("Phone Number is required.");
+            }else{
+                this.validatePhone(this.formData.phoneNumber);
+            }
+
+            if(!(  this.formData.selectDay!="0" 
+                && this.formData.selectMonth!="0"  
+                && this.formData.selectYear!="0" )
+            ){
+                this.errors.push("Please select a valid date with Day, Month and Year.");
+            }
+
+            if(!this.formData.readPrivacyCheck){
+                this.errors.push("Please read our privacy policies ")
+            }
+
+
+            // var testData = {
+            //     firstName:"dwcefw", //
+            //     emailID:"aa@gg.com", //
+            //     lastName:"ewfwewf", //
+            //     phoneNumber:"23456789", //
+            //     projectDescription:"i dont know",
+            //     projectName:"test",
+            //     readPrivacyCheck:true,
+            //     readRulesCheck:true,
+            //     selectCategory:"amateur",
+            //     selectDay:"8",//
+            //     selectMonth:"4",//
+            //     selectState:"0",
+            //     selectYear:"2009"//
+            // }
+        },
+        validEmail: function(emailID){
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if(!re.test(emailID)){
+                this.errors.push("Please enter a valid Email Address.");
+            }
+        },
+        validatePhone: function(phone){
+            var phoneRegEx = /^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,3})|(\(?\d{2,3}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$/;
+            if(!phoneRegEx.test(phone)){
+                this.errors.push("Please enter a valid Phone Number.");
             }
         }
     }
