@@ -21,15 +21,15 @@
       "js",
       "json",
       "vue"
-     ],
-      "transform": {
-       ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue-preprocessor",
-       "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
-     },
-     "moduleNameMapper": {
-       "^@/(.*)$": "<rootDir>/src/$1"
-     }
- },
+    ],
+    "transform": {
+      ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue-preprocessor",
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+    },
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    }
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -38,6 +38,7 @@
     "babel-preset-env": "^1.5.1",
     "cross-env": "^3.0.0",
     "css-loader": "^0.25.0",
+    "debounce": "^1.1.0",
     "eslint": "^4.4.1",
     "eslint-plugin-vue": "^2.1.0",
     "extract-text-webpack-plugin": "^2.1.2",
