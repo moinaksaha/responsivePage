@@ -283,15 +283,9 @@
 
                 <progress class="form__upload"></progress>
 
-                <label class="form__el" for="project-upload">
-                    Upload your file (.jpg/.jpeg/.png)
-                    <input 
-                        type="file" 
-                        name="project-upload" 
-                        id="project-upload" 
-                        accept=".jpg,.jpeg,.png" 
-                        class="hidden">
-                </label>
+                <file-upload 
+                    @imageUploadData="updateImageData"/>
+
 
             </div>
 
@@ -354,21 +348,21 @@
 
                     </div>
 
-                    <div>
-
-                        <p v-if="errors.length">
-                            <b>Please fix the following error(s):</b>
-                            <ul>
-                                <li v-for="(error, i) in errors" v-bind:key="i">{{ error }}</li>
-                            </ul>
-                        </p>
-
-                    </div>
-
                 </div>
 
             </div>
         
+        </div>
+
+        <div>
+
+            <p v-if="errors.length">
+                <b>Please fix the following error(s):</b>
+                <ul>
+                    <li v-for="(error, i) in errors" v-bind:key="i">{{ error }}</li>
+                </ul>
+            </p>
+
         </div>
         
     </form>
@@ -376,6 +370,9 @@
 </template>
 
 <script>
+
+import FileUpload from '../FormComponents/FileUpload.vue';
+
 export default {
     name: 'MotorKFormComponent',
     data(){
@@ -390,7 +387,13 @@ export default {
             }
         }
     },
+    components: {
+        'file-upload': FileUpload
+    },
     methods: {
+        updateImageData: function(base64Data){
+            this.formData.imageData = base64Data;
+        },
         validateFormData: function(){
             this.errors = [];
 
@@ -487,13 +490,7 @@ export default {
             }
         }
     }
-    label[for=project-upload]{
-        @media screen and (max-width: 767px){
-            width: calc(100% - 2px);
-            position: relative;
-            margin-bottom: 1em;
-        }
-    }
+    
 
     label[for=read-rules]{
         @media screen and (max-width: 767px){
