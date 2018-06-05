@@ -27,13 +27,18 @@
 
 <script>
 
+// Import child component
 import GenericButton from '../Buttons/GenericButton.vue';
-import GalleryWrapper from '../Gallery/GalleryWrapper.vue'
+import GalleryWrapper from '../Gallery/GalleryWrapper.vue';
+
+// Import the JSON data for cars
 let carsData = require('../../data/cars.json');
 
+// Default export Gallery tab content
 export default {
     name: 'MotorKTabContentGallery',
     data(){
+      // Initial component data
       return{
         participateButton : {
           displayText: 'Participate', 
@@ -44,6 +49,7 @@ export default {
       }
     },
     components: {
+      // component mapping
       'generic-button': GenericButton,
       'gallery-wrapper': GalleryWrapper
     }
@@ -51,6 +57,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  // scoped styling for component
   #gallery{
     > section{
       margin-top: 2em;

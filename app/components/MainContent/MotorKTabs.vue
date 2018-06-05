@@ -14,9 +14,11 @@
 
 <script>
 
+// Child component imports
 import MotorKTabNav from '../TabContent/MotorKTabNav.vue';
 import MotorKTabContentWrapper from '../TabContent/MotorKTabContentWrapper.vue';
 
+// default export the tabs component
 export default {
     name: 'MotorKTabs',
     components: {

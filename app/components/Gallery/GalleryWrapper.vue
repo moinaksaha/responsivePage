@@ -24,14 +24,6 @@
                 <button class="gallery__paging__cmd gallery__paging__cmd--symbol"
                     @click="slidePrev">&lsaquo;</button>
 
-                <button class="gallery__paging__cmd is-active">1</button>
-
-                <button class="gallery__paging__cmd">2</button>
-
-                <button class="gallery__paging__cmd">3</button>
-
-                <button class="gallery__paging__cmd">4</button>
-
                 <button class="gallery__paging__cmd gallery__paging__cmd--symbol"
                     @click="slideNext">&rsaquo;</button>
 
@@ -117,13 +109,7 @@ export default {
 
         // },
         
-    },
-    // mounted () {
-    //     document.getElementById("moinak").addEventListener('scroll', this.debounceFunc, false);
-    // },
-    // beforeDestroy () {
-    //     document.getElementById("moinak").removeEventListener('scroll', this.debounceFunc);
-    // }
+    }
 }
 </script>
 

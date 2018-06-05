@@ -77,12 +77,17 @@
 
 <script>
 
+
+// importing child components
 import MotorKParagraphComponent from '../Utility/MotorKParagraphComponent.vue';
 import GenericButton from '../Buttons/GenericButton.vue';
 
+// default export showcase tab content
 export default {
     name: 'MotorKTabContentShowcase',
     data() {
+      // inital data for the component
+      // also includes child component data
       return {
         paraTextTop: {
           displayText: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda doloremque, in
@@ -105,6 +110,7 @@ export default {
       }
     },
     components: {
+      // component mapping
       'motork-paragraph-component': MotorKParagraphComponent,
       'generic-button': GenericButton
     }
@@ -112,7 +118,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+  // scoped component styling
   #showcase{
     .grid__item{
       display: flex;

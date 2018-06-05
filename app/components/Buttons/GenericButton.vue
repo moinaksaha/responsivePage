@@ -7,6 +7,10 @@
 </template>
 
 <script>
+// default export for the genric button component
+// prop: button data
+// choses one of the following type of buttons - [btn btn--sec, btn btn--main]
+// can be reused if props are changed according to need
 export default {
     name: 'GenericButton',
     props: ['buttonData'],

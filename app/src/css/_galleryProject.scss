@@ -11,6 +11,9 @@
 	font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 	padding: 0 0.25em;
 	margin: auto 0.25em;
+	@media screen and (max-width: 767px){
+		margin: auto 0em;
+	}
 }
 
 .gallery__paging__cmd--symbol {

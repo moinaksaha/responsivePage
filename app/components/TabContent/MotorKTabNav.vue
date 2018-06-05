@@ -29,6 +29,7 @@
 </template>
 
 <script>
+// export default for the navigation component for tabs
 export default {
     name: 'MotorKTabNav'
 }

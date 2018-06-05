@@ -8,6 +8,8 @@
 </template>
 
 <script>
+// utility component Heading
+// to be used for various heading throughout the project
 export default {
     name: 'MotorKHeadingComponent',
     props: ['headingData'],

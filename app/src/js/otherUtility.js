@@ -1,3 +1,5 @@
+// Function to randomly return a promise with equal success and fail probable response
+// Used to mock ajax call with success/error response
 export function submitIt(data) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {

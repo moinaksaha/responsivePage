@@ -45,11 +45,14 @@
 
 <script>
 
+// Importing 'submitIt' function to mock image upload 
 import { submitIt } from '../../src/js/otherUtility.js';
 
+// default export for the file upload component
 export default {
     name: 'FileUpload',
     data(){
+        // initial state of the component
         return{
             image: '',
             uploading: false,
@@ -59,8 +62,9 @@ export default {
         }
     },
     methods: {
+        // method to fire onchange of input field
         onFileChange: function(e) {
-
+            // reset the state on file change
             this.image = '';
             this.fileSizeError = false;
             this.fileUploaded = false;
@@ -68,15 +72,20 @@ export default {
             this.uploading = false;
             
             var files = e.target.files || e.dataTransfer.files;
+
+            // checks for successful file attachment
             if (!files.length)
                 return;
+            // checks for file size
             if(files[0].size <= 5*1024*1024){
                 this.createImage(files[0]);
             }else{
+                // show error
                 this.fileSizeError = true;
             }
             
         },
+        // method to create the image file to be uploaded for a valid image file
         createImage: function(file) {
             var image = new Image();
             var reader = new FileReader();
@@ -87,17 +96,28 @@ export default {
             };
             reader.readAsDataURL(file);
         },
+        // function to remove the image data - can be used 
         removeImage: function (e) {
             this.image = '';
         }
     },
+    // watcher on the image data
     watch: {
         image: function(){ 
 
+            // emit a function to attach the file data to the form - if it is to be used
             this.$emit('imageUploadData', this.image);
+
+            // if image data is present,
+            // mock uploading the file 
             if(this.image !== ''){
+                // set uploading to true
+                // used to disable the input during upload
+                // also show the user a prompt
                 this.uploading = true;
 
+                // actual promise call 
+                // with success and error handlers
                 submitIt(this.image)
                 .then((response) => {
                     this.fileUploaded = true;
@@ -115,7 +135,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+    // scoped style for the image upload component
     label[for=project-upload]{
         &:active {
             -webkit-transform: scale(0.9);

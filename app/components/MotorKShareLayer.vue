@@ -48,6 +48,7 @@
 </template>
 
 <script>
+// Share Layer component
 export default {
     name: 'MotorKShareLayer'
 }

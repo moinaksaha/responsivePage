@@ -33,19 +33,23 @@
 
 <script>
 
+// Import child components
 import MotorKParagraphComponent from '../Utility/MotorKParagraphComponent.vue';
 import GenericButton from '../Buttons/GenericButton.vue';
 import MotorKFormComponent from './MotorKFormComponent.vue'
 
+// default export Participate tab content
 export default {
     name: 'MotorKTabContentParticipate',
     components: {
+      // component mapping
       'motork-paragraph-component': MotorKParagraphComponent,
       'generic-button': GenericButton,
       'motork-form-component': MotorKFormComponent
     },
     data(){
       return {
+        // download template button data
         downloadTemplateButton: {
           displayText: 'Download The Template', 
           hrefLink : '#', 
@@ -57,6 +61,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  // scoped component styling 
   .layout{
     @media screen and (max-width: 1024px){
       display: flex;
@@ -74,9 +79,6 @@ export default {
       margin: 100px 0;
     }
   }
-
-
-
   /* === HERO === */
   .shape-wrapper {
     position: absolute;

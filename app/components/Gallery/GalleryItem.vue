@@ -23,10 +23,12 @@
 </template>
 
 <script>
+// default export for gallery item
 export default {
     name: 'GalleryItem',
     props: ['car'],
     computed: {
+        // computed method to get the div with image BG style
         getimageDivStyle: function(){
             return {
                 'background-image': 'url("' + this.car.attrs.img + '")',
@@ -40,6 +42,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    // scoped style for the component 
     .individual__card{
         border: 1px solid #e6e6e6;
         // border-radius: 4px;

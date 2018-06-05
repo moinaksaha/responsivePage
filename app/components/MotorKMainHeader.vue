@@ -51,12 +51,15 @@
 
 
 <script>
+// main header component
 export default {
     name: 'MotorKMainHeader'
 }
 </script>
 
 <style lang="scss" scoped>
+    // Template Styling
+    
     .logo,
     .logo__media {
         display: block;

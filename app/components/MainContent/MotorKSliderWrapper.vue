@@ -8,27 +8,11 @@
 
     </div>
 
-    <!-- <motork-main-slider-bg-item
+    <motork-main-slider-bg-item
       v-for="(item, i) in topSliderImageList"
-      :appointment="item"
+      :item="item"
       :key="i"
-    /> -->
-
-    <div class="slider__el">
-      <img data-flickity-lazyload="https://unsplash.it/g/1920/800?image=0" alt="" class="slider__media">
-    </div>
-
-    <div class="slider__el">
-      <img data-flickity-lazyload="https://unsplash.it/g/1920/800?image=1" alt="" class="slider__media">
-    </div>
-
-    <div class="slider__el">
-      <img data-flickity-lazyload="https://unsplash.it/g/1920/800?image=2" alt="" class="slider__media">
-    </div>
-
-    <div class="slider__el">
-      <img data-flickity-lazyload="https://unsplash.it/g/1920/800?image=3" alt="" class="slider__media">
-    </div>
+    />
 
   </section>
 
@@ -36,12 +20,15 @@
 
 <script>
 
+// Importing child components
 import MotorKMainSliderBGItem from '../MainSlider/MotorKMainSliderBGItem.vue';
 import MotorKMainSliderHeader from '../MainSlider/MotorKMainSliderHeader.vue'
 
+// default export for the slider wrapper
 export default {
     name: 'MotorKSliderWrapper',
     data(){
+      // data for the slider images
       return{
         topSliderImageList: [
           'https://unsplash.it/g/1920/800?image=0',
@@ -58,7 +45,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 /* === MAIN SLIDER === */
 .slider-wrapper {
@@ -69,25 +56,6 @@ export default {
         height: calc(100vh - 200px);
   }
 }
-
-/* .slider__head {
-	max-width: 75%;
-	position: absolute;
-	left: 10%;
-	top: 50%;
-	z-index: 2;
-	padding-top: 1em;
-	padding-bottom: 1em;
-	background-color: rgba(255, 255, 255, .4);
-	-webkit-transform: translateY(-50%);
-	transform: translateY(-50%);
-}
-
-.slider__head__el {
-	opacity: 0;
-	-webkit-transform: matrix(0.5, 0, 0, 0.5, 0, -22);
-	transform: matrix(0.5, 0, 0, 0.5, 0, -22);
-} */
 
 .slider__el {
 	width: 100%;

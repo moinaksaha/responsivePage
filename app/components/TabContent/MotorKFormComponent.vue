@@ -365,6 +365,15 @@
             </p>
 
         </div>
+
+        <div class="formSubmitted"
+             v-if="formSubmitted">
+
+            <p>
+                Form Submitted Successfully
+            </p>
+
+        </div>
         
     </form>
 
@@ -372,13 +381,17 @@
 
 <script>
 
+// Import file upload input component
 import FileUpload from '../FormComponents/FileUpload.vue';
 
+// Form Component
 export default {
     name: 'MotorKFormComponent',
     data(){
+        // initial component data
         return {
             errors:[],
+            formSubmitted: false,
             formData: {
                 selectDay: '0',
                 selectMonth: '0',
@@ -389,6 +402,7 @@ export default {
         }
     },
     components: {
+        // component mapping
         'file-upload': FileUpload
     },
     methods: {
@@ -396,6 +410,7 @@ export default {
             this.formData.imageData = base64Data;
         },
         validateFormData: function(){
+            // function to validate the form data
             this.errors = [];
 
             if(!(this.formData.firstName && this.formData.firstName.trim())){
@@ -430,16 +445,19 @@ export default {
             }
 
             if(!this.errors.length){
+                this.formSubmitted = true;
                 // Do form data upload here
             }
         },
         validEmail: function(emailID){
+            // regex to test email
             var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             if(!re.test(emailID)){
                 this.errors.push("Please enter a valid Email Address.");
             }
         },
         validatePhone: function(phone){
+            // regex to test phone
             var phoneRegEx = /^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,3})|(\(?\d{2,3}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$/;
             if(!phoneRegEx.test(phone)){
                 this.errors.push("Please enter a valid Phone Number.");
@@ -450,7 +468,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    
+    // Form component scoped styling
 
     .layout{
         @media screen and (max-width: 767px){
@@ -500,6 +518,8 @@ export default {
     .errorWrapper{
         margin: 1em 0;
         padding: 1em;
+        background: #ff4646;
         border: 1px solid #ff4646;
+        color: white;
     }
 </style>

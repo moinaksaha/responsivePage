@@ -71,13 +71,9 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 /* === MAIN SLIDER === */
-/* .slider-wrapper {
-	height: calc(100vh - 78px);
-	position: relative;
-} */
 
 .slider__head {
 	max-width: 50%;
@@ -101,10 +97,7 @@ export default {
 .slider__head__el {
 	opacity: 0;
 	-webkit-transform: matrix(0.5, 0, 0, 0.5, 0, -22);
-	transform: matrix(0.5, 0, 0, 0.5, 0, -22);
-}
-
-.slider__head__el{
+    transform: matrix(0.5, 0, 0, 0.5, 0, -22);
     .btn{
         @media screen and (max-width: 767px) {
             display: block;
@@ -117,16 +110,6 @@ export default {
     }
 }
 
-/* .slider__el {
-	width: 100%;
-	height: 100%;
-	opacity: 0;
-	background-size: cover;
-	background-position: center center;
-	background-repeat: no-repeat;
-	-webkit-transition: opacity 1.5s ease-out;
-	transition: opacity 1.5s ease-out;
-} */
 
 .slider__media {
 	visibility: hidden;
