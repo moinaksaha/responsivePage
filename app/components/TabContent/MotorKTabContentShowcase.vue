@@ -116,7 +116,48 @@ export default {
   #showcase{
     .grid__item{
       display: flex;
+      position: relative;
+      opacity: 0;
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      -webkit-transition: z-index .25s;
+      transition: z-index .25s;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      & > img {
+        display: block;
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        -webkit-filter: grayscale(70%);
+        transition: -webkit-filter .5s,
+        transform .25s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+      }
     }
+    .grid__item--stacked {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      & > .grid__item {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1 0 auto;
+        -ms-flex: 1 0 auto;
+        flex: 1 0 auto;
+      }
+    }
+
     .btn-wrapper{
       a{
         @media screen and (max-width: 600px){
@@ -138,6 +179,12 @@ export default {
           padding: 0;
         }
       }
+    }
+
+    .showcase-gallery__el,
+    .showcase-gallery__el > img {
+      width: 100%;
+      display: block;
     }
 
   }

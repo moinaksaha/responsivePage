@@ -20,7 +20,7 @@ module.exports = {
         loader: 'style-loader!css-loader!sass-loader',
       },
       {
-          test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
+          test: /\.woff2?$|\.ttf$|\.eot$/,
           use: [{
               loader: 'file-loader'
           }]

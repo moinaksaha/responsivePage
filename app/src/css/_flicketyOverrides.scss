@@ -1,0 +1,52 @@
+/* === OVERRIDE FLICKITY BUTTONS */
+/* .flickity-prev-next-button {
+	background: rgba(0, 0, 0, 0);
+	-webkit-transition: background-color .3s;
+	transition: background-color .3s;
+} */
+/* === OVERRIDE FLICKITY BUTTONS */
+.flickity-prev-next-button {
+	background: rgba(0, 0, 0, 0);
+	-webkit-transition: background-color .3s;
+	transition: background-color .3s;
+	@media screen and (max-width: 767px) {
+		height: 30px;
+		width: 30px;
+	}
+	&.previous{
+		@media screen and (max-width: 600px){
+			left: -5px;
+		}
+	}
+	&.next{
+		@media screen and (max-width: 600px){
+			right: -5px;
+		}
+	}
+}
+
+/* === STICKY SHOWCASE TEXT / FIXED STICKY PLUGIN === */
+.fixedsticky {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+}
+
+/* When position: sticky is supported but native behavior is ignored */
+.fixedsticky-withoutfixedfixed .fixedsticky-off,
+.fixed-supported .fixedsticky-off {
+	position: static;
+}
+
+.fixedsticky-withoutfixedfixed .fixedsticky-on,
+.fixed-supported .fixedsticky-on {
+	position: fixed;
+}
+
+.fixedsticky-dummy {
+	display: none;
+}
+
+.fixedsticky-on + .fixedsticky-dummy {
+	display: block;
+}

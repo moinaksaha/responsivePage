@@ -354,9 +354,10 @@
         
         </div>
 
-        <div>
+        <div class="errorWrapper"
+             v-if="errors.length">
 
-            <p v-if="errors.length">
+            <p>
                 <b>Please fix the following error(s):</b>
                 <ul>
                     <li v-for="(error, i) in errors" v-bind:key="i">{{ error }}</li>
@@ -428,22 +429,9 @@ export default {
                 this.errors.push("Please read our privacy policies ")
             }
 
-
-            // var testData = {
-            //     firstName:"dwcefw", //
-            //     emailID:"aa@gg.com", //
-            //     lastName:"ewfwewf", //
-            //     phoneNumber:"23456789", //
-            //     projectDescription:"i dont know",
-            //     projectName:"test",
-            //     readPrivacyCheck:true,
-            //     readRulesCheck:true,
-            //     selectCategory:"amateur",
-            //     selectDay:"8",//
-            //     selectMonth:"4",//
-            //     selectState:"0",
-            //     selectYear:"2009"//
-            // }
+            if(!this.errors.length){
+                // Do form data upload here
+            }
         },
         validEmail: function(emailID){
             var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -462,10 +450,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    
+
     .layout{
         @media screen and (max-width: 767px){
             display: block;
-            // flex-direction: column;
         }
     }
     .form__row div.layout__item{
@@ -507,5 +496,10 @@ export default {
         @media screen and (max-width: 767px){
             width: calc(100% - 2px);
         }
+    }
+    .errorWrapper{
+        margin: 1em 0;
+        padding: 1em;
+        border: 1px solid #ff4646;
     }
 </style>

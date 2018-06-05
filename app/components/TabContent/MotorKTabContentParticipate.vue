@@ -69,15 +69,52 @@ export default {
       display: block;
     }
   }
-  figure::after {
-      content: "";
-      clear: both;
-      display: table;
+  figure.u-1\/3{
+    @media screen and (max-width: 1024px){
+      margin: 100px 0;
+    }
   }
-  figure::before {
-      content: "";
-      clear: both;
-      display: table;
+
+
+
+  /* === HERO === */
+  .shape-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero__media {
+    max-width: 40%;
+    left: 50%;
+    top: 50%;
+  }
+
+  .svg-wrapper {
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 50%;
+    height: 0;
+    padding-bottom: 50%;
+    .is-visible .shape {
+      stroke-dashoffset: 0;
+      stroke-dasharray: 1290;
+    }
+  }
+
+  .shape {
+    width: 100%;
+    height: 100%;
+    stroke-dasharray: 140 1290;
+    stroke-dashoffset: -474;
+    stroke-width: 0.75rem;
+    fill: transparent;
+    stroke: rgba(248, 159, 28, 1);
+    -webkit-transition: stroke-dashoffset 1s,
+    stroke-dasharray 1s;
+    transition: stroke-dashoffset 1s,
+    stroke-dasharray 1s;
   }
 </style>
 
