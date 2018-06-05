@@ -1,19 +1,19 @@
 <template>
-    <footer class="main-footer">
-      <div class="layout-wrapper">
-        <div class="layout palm-layout--stacked">
-          <div class="layout__item">
-            <p class="footer__el">
-              Copyright <sup>&copy;</sup> 2018 MotorK Ltd - All right reserved
-            </p>
-          </div>
-          <div class="layout__item">
-            <p class="footer__el footer__el--divided"><a href="#">Privacy</a></p>
-            <p class="footer__el"><a href="#">Cookie</a></p>
-          </div>
+  <footer class="main-footer">
+    <div class="layout-wrapper">
+      <div class="layout palm-layout--stacked">
+        <div class="layout__item">
+          <p class="footer__el">
+            Copyright <sup>&copy;</sup> 2018 MotorK Ltd - All right reserved
+          </p>
+        </div>
+        <div class="layout__item">
+          <p class="footer__el footer__el--divided"><a href="#">Privacy</a></p>
+          <p class="footer__el"><a href="#">Cookie</a></p>
         </div>
       </div>
-    </footer>
+    </div>
+  </footer>
 </template>
 
 <script>
@@ -22,4 +22,14 @@ export default {
     name: 'MotorKMainFooter'
 }
 </script>
+
+<style lang="scss" scoped>
+  .layout.palm-layout--stacked{
+    @media screen and (max-width: 767px){
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
+
 
