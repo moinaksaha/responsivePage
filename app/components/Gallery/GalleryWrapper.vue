@@ -40,22 +40,21 @@
 
 <script>
 
+// import debounce from npm debounce
 import debounce from 'debounce';
 
+// import child component
 import GalleryItem from './GalleryItem.vue';
 
+// default export for the gallery wrapper
 export default {
     name: 'GalleryWrapper',
     props: ['data'],
     data(){
+        // initial state
         return {
             scrollValue: 0,
             isScrolling: false
-        }
-    },
-    computed: {
-        animatedNumber: function() {
-            return this.animatedScrolledValue.toFixed(0);
         }
     },
     watch: {
@@ -67,6 +66,7 @@ export default {
         'gallery-item': GalleryItem
     },
     methods: {
+        // slider Methods - Next
         slideNext: function(){
             const scrollWidth = this.$refs.galleryImageWrapper.scrollWidth;
             const galleryWidth = this.$refs.galleryImageWrapper.offsetWidth;
@@ -74,22 +74,27 @@ export default {
                                  scrollWidth-galleryWidth :  
                                  this.scrollValue + 252;
         },
+        // Slider Method - Prev
         slidePrev: function(){
             this.scrollValue = (this.scrollValue >= 252) ? 
                                 this.scrollValue - 252 : 
                                 0;
         },
+        // Slider Method - last
         slideLast: function(){
             const scrollWidth = this.$refs.galleryImageWrapper.scrollWidth;
             const galleryWidth = this.$refs.galleryImageWrapper.offsetWidth;
             this.scrollValue = scrollWidth - galleryWidth;
         },
+        // slider method - last
         slideFirst: function(){
             this.scrollValue = 0;
         },
+        // debounce function to scroll to an elemet everytime a user scrolls
         debounceFunc: debounce(function() {
             this.updateScrollPosition();
         }, 50),
+        // update scroll position
         updateScrollPosition: function(){
             const scrollPos = this.$refs.galleryImageWrapper.scrollLeft;
             if(scrollPos > this.scrollValue){
@@ -114,6 +119,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    // scoped gallery wrapper style
     .gallery__wrapper{
         overflow-y: hidden;
         white-space: nowrap;
