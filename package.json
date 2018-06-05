@@ -4,7 +4,7 @@
   "description": "MotorK Front End Assignment",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot --content-base ./app",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "postinstall": "npm run dev"
@@ -16,6 +16,20 @@
   "dependencies": {
     "vue": "^2.3.3"
   },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+     ],
+      "transform": {
+       ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue-preprocessor",
+       "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+     },
+     "moduleNameMapper": {
+       "^@/(.*)$": "<rootDir>/src/$1"
+     }
+ },
   "author": "",
   "license": "ISC",
   "devDependencies": {

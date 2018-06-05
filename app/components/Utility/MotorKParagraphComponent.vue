@@ -1,10 +1,6 @@
 <template>
 
-    <p :class="`${paragraphData.additionalClass}`">
-        
-        {{paragraphData.displayText}}
-        
-    </p>
+    <p :class="`${paragraphData.additionalClass}`">{{paragraphData.displayText}}</p>
 
 </template>
 
