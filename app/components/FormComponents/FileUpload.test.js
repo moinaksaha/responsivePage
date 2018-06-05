@@ -1,5 +1,3 @@
-// import { shallow } from 'vue-test-utils'
-
 import Vue from 'vue'
 import FileUpload from './FileUpload.vue'
 
